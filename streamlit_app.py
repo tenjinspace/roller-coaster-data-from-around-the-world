@@ -15,8 +15,13 @@ st.dataframe(df)
 locations = df['Location'].unique()
 suppliers = df['Supplier'].unique()
 
-location = st.selectbox('Select', locations)
-supplier = st.selectbox('Select', suppliers)
+filterSupplier = st.checkbox('Filter by supplier?')
+if filterSupplier == TRUE:
+    supplier = st.selectbox('Select', suppliers)
+
+filterLocation = st.checkbox('Filter by location?')
+if filterLocation == TRUE:
+    location = st.selectbox('Select', locations)
 
 filtered_df = df[(df['Location'] == location) & (df['Supplier'] == supplier)]
 
