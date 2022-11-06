@@ -10,3 +10,14 @@ st.markdown("Github Copilot test")
 st.header("Test 1")
 st.dataframe(df)
 
+# create a dataframe with only roller coasters that have locations in the US
+us_coasters = df[df['Country'] == 'United States']
+
+# create a list with all the locations in df dataframe
+locations = df['Location'].unique()
+
+location = st.selectbox('Select', locations)
+
+filtered_df = df[df['Location'] == location]
+st.dataframe(filtered_df)
+
