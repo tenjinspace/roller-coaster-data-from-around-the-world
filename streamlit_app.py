@@ -13,9 +13,11 @@ st.dataframe(df)
 
 # create a list with all the locations in df dataframe
 locations = df['Location'].unique()
+suppliers = df['Supplier'].unique()
 
 location = st.selectbox('Select', locations)
+supplier = st.selectbox('Select', suppliers)
 
-filtered_df = df[df['Location'] == location]
+filtered_df = df[(df['Location'] == location) & (df['Supplier'] == supplier)]
+
 st.dataframe(filtered_df)
-
